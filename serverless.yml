@@ -51,10 +51,6 @@ provider:
         - dynamodb:DeleteItem
       Resource:
         - { "Fn::GetAtt": ["ResumeDynamoDBTable", "Arn"] }
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
   environment:
     Resume_TABLE: ${self:custom.ResumeTableName}
     NODE_ENV: ${self:provider.stage}
