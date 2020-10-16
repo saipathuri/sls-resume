@@ -1,0 +1,21 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack
+
+# Dotenv
+.env
+
+# DynamoDB-local
+.dynamodb
+
+# Typescript output
+.build
+
+# yarn
+yarn-error.log

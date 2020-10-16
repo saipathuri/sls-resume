@@ -1,0 +1,200 @@
+openapi: 3.0.0
+info:
+  title: "Resume API"
+  version: "1.0.0"
+  description: "Serverless Role Based Auth API powered by JWT"
+  contact:
+    email: "sai@pathuri.net"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+servers:
+  - url: "https://resume.saipathuri.me"
+paths:
+  /about:
+    get:
+      summary: "Retrieve the about section of the resume."
+      responses:
+        "200":
+          description: "About section retrieved."
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/About"
+        "401":
+          description: "Authentication failed."
+    put:
+      summary: "Update the about section of the resume."
+      requestBody:
+        required: true
+        description: "About information to update."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/About"
+      responses:
+        "200":
+          description: "Successfully updated."
+        "401":
+          description: "Authentication failed."
+  /education:
+    get:
+      summary: "Get all education items."
+      responses:
+        "200":
+          description: "Education section retrieved"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  $ref: "#/components/schemas/EducationItem"
+    post:
+      summary: "Create a new education item."
+      requestBody:
+        required: true
+        description: "EducationItem to create"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EducationItem"
+      responses:
+        "201":
+          description: "Successfully created new education item"
+        "401":
+          description: "Authentication failed."
+  /education/{id}:
+    put:
+      summary: "Update an education item."
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "ID of EducationItem to update."
+          schema:
+            type : integer
+            minimum: 0
+      requestBody:
+        required: true
+        description: "EducationItem to create"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EducationItem"
+      responses:
+        "200":
+          description: "Successfully updated education item"
+        "401":
+          description: "Authentication failed."
+  /experience:
+    get:
+      summary: "Get all experience items."
+      responses:
+        "200":
+          description: "Experience section retrieved"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  $ref: "#/components/schemas/ExperienceItem"
+    post:
+      summary: "Create a new experience item."
+      requestBody:
+        required: true
+        description: "ExperienceItem to create"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExperienceItem"
+      responses:
+        "201":
+          description: "Successfully created new experience item"
+        "401":
+          description: "Authentication failed."
+  /experience/{id}:
+    put:
+      summary: "Update an experience item."
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "ID of ExperienceItem to update."
+          schema:
+            type : integer
+            minimum: 0
+      requestBody:
+        required: true
+        description: "ExperienceItem to create"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExperienceItem"
+      responses:
+        "200":
+          description: "Successfully updated experience item"
+        "401":
+          description: "Authentication failed."
+components:
+  schemas:
+    About:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: object
+          properties:
+            lineOne:
+              type: string
+            lineTwo:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+    EducationItem:
+      type: object
+      properties:
+        schoolName:
+          type: string
+        degree:
+          type: string
+        date:
+          type: string
+        descriptions:
+          type: array
+          items:
+            type: object
+            properties:
+              topic:
+                type: string
+              description:
+                type: string
+    ExperienceItem:
+      type: object
+      properties:
+        title:
+          type: string
+        company:
+          type: string
+        location:
+          type: string
+        date:
+          type: string
+        descriptions:
+          type: array
+          items:
+            type: object
+            properties:
+              topic: 
+                type: string
+              description: 
+                type: string
+      
