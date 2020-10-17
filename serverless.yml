@@ -52,7 +52,7 @@ provider:
       Resource:
         - { "Fn::GetAtt": ["ResumeDynamoDBTable", "Arn"] }
   environment:
-    Resume_TABLE: ${self:custom.ResumeTableName}
+    RESUME_TABLE: ${self:custom.ResumeTableName}
     NODE_ENV: ${self:provider.stage}
 
 resources:
@@ -62,17 +62,17 @@ resources:
       Properties:
         TableName: ${self:custom.ResumeTableName}
         AttributeDefinitions:
-          - AttributeName: section
+          - AttributeName: sectionName
             AttributeType: S
         KeySchema:
-          - AttributeName: section
+          - AttributeName: sectionName
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
 
 custom:
-  ResumeTableName: "Resume-table-${self:provider.stage}"
+  ResumeTableName: "resume-table-${self:provider.stage}"
   customDomain:
     domainName: resume.pathuri.net
     certificateName: "resume.pathuri.net"

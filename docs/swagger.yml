@@ -142,7 +142,7 @@ components:
     About:
       type: object
       properties:
-        name:
+        fullName:
           type: string
         address:
           type: object
@@ -151,13 +151,11 @@ components:
               type: string
             lineTwo:
               type: string
-            city:
-              type: string
-            state:
-              type: string
         phoneNumber:
           type: string
         email:
+          type: string
+        tagLine:
           type: string
     EducationItem:
       type: object

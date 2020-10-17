@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "59422aab-17f8-45f8-8f9b-4dbcb71edc08",
+		"name": "Resume API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET About",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}/about",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"about"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update About",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phoneNumber\": \"5129946923\",\r\n    \"address\": {\r\n        \"lineOne\": \"401 E. 34th St., Apt. N18F\",\r\n        \"lineTwo\": \"Test\"\r\n    },\r\n    \"tagLine\": \"Highly motivated student with hands-on experience in several team projects working on Web Development (Frontend and Backend), Android/iOS and API development, capable of rapidly integrating new information into his performance, with strong communication skills.\",\r\n    \"email\": \"sai@pathuri.net\",\r\n    \"sectionName\": \"about\",\r\n    \"name\": \"Sai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/about",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"about"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

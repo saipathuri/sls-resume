@@ -1,11 +1,10 @@
 export default interface About {
-    name: string;
+    fullName: string;
     phoneNumber: string;
     email: string;
     address: {
         lineOne: string,
         lineTwo: string,
-        city: string,
-        state: string
-    }
+    };
+    tagLine: string;
 }
