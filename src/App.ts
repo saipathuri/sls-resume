@@ -5,9 +5,9 @@ import helmet from "helmet";
 
 import { isDevEnvironment } from "./config/Config";
 
-import aboutRouter from "./routes/About";
-import educationRouter from "./routes/Education";
-import experienceRouter from "./routes/Experience";
+import aboutRouter from "./routes/AboutRouter";
+import educationRouter from "./routes/EducationRouter";
+import experienceRouter from "./routes/ExperienceRouter";
 
 const app = express();
 

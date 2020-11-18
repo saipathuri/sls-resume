@@ -22,11 +22,13 @@ class AboutRepo {
     let result;
   
     try {
-      result = await this.dynamoDb.query(params).promise()
+      logger.info("Retrieving about information from DynamoDB");
+      result = await this.dynamoDb.query(params).promise();
     } catch (e) {
       console.error(e);
     }
-  
+    
+    logger.debug("Retrieved about information from DynamoDB", result);
     return result.Items[0];
   }
 

@@ -166,6 +166,8 @@ components:
           type: string
         date:
           type: string
+        number:
+          type: integer
         descriptions:
           type: array
           items:
